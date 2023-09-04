@@ -1,3 +1,40 @@
+<?php 
+ $servername = "localhost";
+ $username = "root";
+ $dbname = "contactos";
+ 
+ $conn = mysqli_connect($servername,$username,$dbname);
+ 
+ //chequear la conexion
+ function errorConexion($conn){
+     if(!$conn){
+         die("Connection failed: " . mysqli_connect_error());
+     }    
+ }
+ function insertarDatos($conn,$email,$telefono,$comentario){
+   $sql = "INSERT INTO contacto (email,telefono,comentarios)
+   VALUES ('$email','$telefono','$comentario')";
+   if(mysqli_query($conn,$sql)){
+       echo "";
+   }else{
+     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+   }
+ }
+ 
+ errorConexion($conn);
+ if (isset($_POST['email']) && isset($_POST['telefono']) && isset($_POST['comentarios'])) {
+    $email = $_POST['email'];
+    $telefono = $_POST['telefono'];
+    $comentario = $_POST['comentarios'];
+    insertarDatos($conn,$email,$telefono,$comentario);
+    mysqli_close($conn); 
+ }else{
+    echo "Los campos estan vacios";
+ }
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -145,7 +182,7 @@
                     <div class="linea"></div>
                     <h2 class="centrar cambiar-tamanio" id="contacto">Contacto</h2>
                     <div class="linea"></div>
-                    <form action="./contacto.php" method="get">
+                    <form action="./contacto.php" method="POST">
                         <div class="mb-3 mt-3">
                             <label for="email">Email:</label>
                             <input type="email" class="form-control" id="email" placeholder="Enter email" name="email"
