@@ -16,7 +16,7 @@ function insertarDatos($conn,$email,$telefono,$comentario){
   $sql = "INSERT INTO contacto (email,telefono,comentarios)
   VALUES ('$email','$telefono','$comentario')";
   if(mysqli_query($conn,$sql)){
-       header("Location: http://localhost/cv_page/contacto/contacto.html");
+      echo "";
   }else{
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }

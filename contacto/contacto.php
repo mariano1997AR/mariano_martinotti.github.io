@@ -10,6 +10,7 @@
     echo $comentario . "<br>";
     */
     insertarDatos($conn,$email,$telefono,$comentario);
+    header("Location: http://localhost/cv_page/contacto/contacto.html");
     mysqli_close($conn); 
 }else{
     echo "Los campos estan vacios";
@@ -17,14 +18,3 @@
 
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
