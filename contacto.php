@@ -22,10 +22,10 @@
  }
  
  errorConexion($conn);
- if (isset($_POST['email']) && isset($_POST['telefono']) && isset('comentarios')) {
-    $email = $_POST['email'];
-    $telefono = $_POST['telefono'];
-    $comentario = $_POST['comentarios'];
+ if (isset($_GET['email']) && isset($_GET['telefono']) && isset($_GET['comentarios'])) {
+    $email = $_GET['email'];
+    $telefono = $_GET['telefono'];
+    $comentario = $_GET['comentarios'];
     insertarDatos($conn,$email,$telefono,$comentario);
     mysqli_close($conn); 
  }else{
@@ -42,11 +42,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - Mariano andres Martinotti</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="shortcut icon" href="../img/logo_martinotti.png" type="image/x-icon">
-    <link rel="stylesheet" href="../css/form.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/contacto.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="shortcut icon" href="./img/logo_martinotti.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/contacto.css">
 </head>
 <body>
     <div class="container mt-3">
