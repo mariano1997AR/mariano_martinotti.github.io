@@ -182,7 +182,7 @@
                     <div class="linea"></div>
                     <h2 class="centrar cambiar-tamanio" id="contacto">Contacto</h2>
                     <div class="linea"></div>
-                    <form action="./contacto.php" method="POST">
+                    <form action="/index.php" method="POST">
                         <div class="mb-3 mt-3">
                             <label for="email">Email:</label>
                             <input type="email" class="form-control" id="email" placeholder="Enter email" name="email"
