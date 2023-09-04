@@ -1,39 +1,3 @@
-<?php 
- $servername = "localhost";
- $username = "root";
- $dbname = "contactos";
- 
- $conn = mysqli_connect($servername,$username,$dbname);
- 
- //chequear la conexion
- function errorConexion($conn){
-     if(!$conn){
-         die("Connection failed: " . mysqli_connect_error());
-     }    
- }
- function insertarDatos($conn,$email,$telefono,$comentario){
-   $sql = "INSERT INTO contacto (email,telefono,comentarios)
-   VALUES ('$email','$telefono','$comentario')";
-   if(mysqli_query($conn,$sql)){
-       echo "";
-   }else{
-     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-   }
- }
- 
- errorConexion($conn);
- if (isset($_GET['email']) && isset($_GET['telefono']) && isset($_GET['comentarios'])) {
-    $email = $_GET['email'];
-    $telefono = $_GET['telefono'];
-    $comentario = $_GET['comentarios'];
-    insertarDatos($conn,$email,$telefono,$comentario);
-    mysqli_close($conn); 
- }else{
-    echo "Los campos estan vacios";
- }
-
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
