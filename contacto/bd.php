@@ -1,10 +1,9 @@
 <?php 
 $servername = "localhost";
 $username = "root";
-$password = "";
 $dbname = "contactos";
 
-$conn = mysqli_connect($servername,$username,$password,$dbname);
+$conn = mysqli_connect($servername,$username,$dbname);
 
 //chequear la conexion
 function errorConexion($conn){
