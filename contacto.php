@@ -22,16 +22,17 @@
  }
  
  errorConexion($conn);
- $email = $_POST['email'];
- $telefono = $_POST['telefono'];
- $comentario = $_POST['comentarios'];
- if (isset($email) && isset($telefono) && isset($comentario)) {
+ if (isset($_POST['email']) && isset($_POST['telefono']) && isset('comentarios')) {
+    $email = $_POST['email'];
+    $telefono = $_POST['telefono'];
+    $comentario = $_POST['comentarios'];
     insertarDatos($conn,$email,$telefono,$comentario);
-}else{
+    mysqli_close($conn); 
+ }else{
     echo "Los campos estan vacios";
  }
 
- mysqli_close($conn); 
+
 ?>
 
 <!DOCTYPE html>
@@ -58,6 +59,6 @@
     <!-- BOOSTRAPS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <!-- REDIRECCIONAMOS -->
-    <script src="../js/redireccionar.js"></script>
+    <script src="./js/redireccionar.js"></script>
 </body>
 </html>
